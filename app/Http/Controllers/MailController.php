@@ -11,6 +11,7 @@ class MailController extends Controller
     //
 
     public function sendMail(){
-        Mail::to('vanhungbkcbg1@gmail.com')->send(new OrderShipped());
+        Mail::to('vanhungbkcbg1@gmail.com')->queue(new OrderShipped());
+        echo 'vanhung';
     }
 }

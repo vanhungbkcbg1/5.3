@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 Route::get('/hello', 'MyController@test');
 Route::get('/mail', 'MailController@sendMail');
+Route::get('/runque', 'QueController@runQue');
