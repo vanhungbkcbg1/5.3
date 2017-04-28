@@ -40,13 +40,13 @@ return [
     'connections' => [
 
         'main' => [
-            'auth_key' => 'your-auth-key',
-            'secret' => 'your-secret',
-            'app_id' => 'your-app-id',
-            'options' => [],
-            'host' => null,
-            'port' => null,
-            'timeout' => null,
+	        'auth_key' => env('PUSHER_APP_KEY'),
+	        'secret' => env('PUSHER_APP_SECRET'),
+	        'app_id' => env('PUSHER_APP_ID'),
+	        'options' => ['cluster'=>'ap1'],
+	        'host' => null,
+	        'port' => null,
+	        'timeout' => null,
         ],
 
         'alternative' => [

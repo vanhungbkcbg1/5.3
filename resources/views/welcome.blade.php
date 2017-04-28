@@ -91,5 +91,16 @@
                 </div>
             </div>
         </div>
+
+        <script src="http://js.pusher.com/3.0/pusher.min.js"></script>
+        <script>
+	        var pusher = new Pusher("{{env("PUSHER_APP_KEY")}}",{cluster:'ap1'});
+	        var channel = pusher.subscribe('test-channel');
+	        channel.bind('test-event', function(data) {
+		        alert(data.text);
+	        });
+        </script>
     </body>
 </html>
+
+

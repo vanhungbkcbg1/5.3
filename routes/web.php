@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\App;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -19,3 +21,13 @@ Route::get('/hello', 'MyController@test');
 Route::get('/mail', 'MailController@sendMail');
 Route::get('/runque', 'QueController@runQue');
 Route::get('/soap', 'WCFController@callService');
+
+Route::get('/bridge', function() {
+	$pusher = App::make('pusher');
+
+	$pusher->trigger( 'test-channel',
+		'test-event',
+		array('text' => 'Preparing the Pusher Laracon.eu workshop!'));
+
+	return view('welcome');
+});
