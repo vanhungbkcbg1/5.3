@@ -31,3 +31,5 @@ Route::get('/bridge', function() {
 
 	return view('welcome');
 });
+
+Route::get('/echo', 'MyController@broadCast');
