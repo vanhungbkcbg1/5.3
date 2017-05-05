@@ -33,3 +33,6 @@ Route::get('/bridge', function() {
 });
 
 Route::get('/echo', 'MyController@broadCast');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
