@@ -7,3 +7,8 @@ Echo.channel('test')
     .listen('ChatMessageWasReceived', function (e) {
         console.log(e);
     });
+
+Echo.private('testprivatechannel').listen('PrivateEvent', function (e) {
+
+    console.log(e);
+});
