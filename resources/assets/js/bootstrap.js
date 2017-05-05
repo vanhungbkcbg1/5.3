@@ -37,5 +37,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  window.Echo = new Echo({
      broadcaster: 'pusher',
      key: '95fdbaeb3923d6f7a504',
-     cluster:'ap1'
+     cluster:'ap1',
+     csrfToken: window.Laravel.csrfToken
  });

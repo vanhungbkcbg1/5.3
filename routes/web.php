@@ -25,8 +25,8 @@ Route::get('/soap', 'WCFController@callService');
 Route::get('/bridge', function() {
 	$pusher = App::make('pusher');
 
-	$pusher->trigger( 'test-channel',
-		'test-event',
+	$pusher->trigger( 'test',
+		'ChatMessageWasReceived',
 		array('text' => 'Preparing the Pusher Laracon.eu workshop!'));
 
 	return view('welcome');

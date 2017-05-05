@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>Laravel</title>
 
@@ -92,14 +93,23 @@
             </div>
         </div>
 
-        <script src="http://js.pusher.com/3.0/pusher.min.js"></script>
-        <script>
-	        var pusher = new Pusher("{{env("PUSHER_APP_KEY")}}",{cluster:'ap1'});
-	        var channel = pusher.subscribe('test-channel');
-	        channel.bind('test-event', function(data) {
-		        alert(data.text);
-	        });
-        </script>
+
+       <script>
+	       window.Laravel={};
+	       window.Laravel.csrfToken = "{{csrf_token()}}";
+
+       </script>
+        {{--<script src="http://js.pusher.com/3.0/pusher.min.js"></script>--}}
+        <script src="{{url('js/app.js')}}"></script>
+{{--        <script src="{{url('js/echo.js')}}"></script>--}}
+        <script src="{{url('js/boot.js')}}"></script>
+        {{--<script>--}}
+	        {{--var pusher = new Pusher("{{env("PUSHER_APP_KEY")}}",{cluster:'ap1'});--}}
+	        {{--var channel = pusher.subscribe('test-channel');--}}
+	        {{--channel.bind('test-event', function(data) {--}}
+		        {{--alert(data.text);--}}
+	        {{--});--}}
+        {{--</script>--}}
     </body>
 </html>
 
