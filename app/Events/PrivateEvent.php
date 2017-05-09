@@ -10,9 +10,11 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class PrivateEvent
+class PrivateEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
+
+    public $name="hungnv";
 
     /**
      * Create a new event instance.

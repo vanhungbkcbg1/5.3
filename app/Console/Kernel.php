@@ -14,7 +14,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         //
-	    Commands\SendChatMessage::class
+	    Commands\SendChatMessage::class,
+	    Commands\TestPrivate::class
     ];
 
     /**
