@@ -36,3 +36,6 @@ Route::get('/echo', 'MyController@broadCast');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/adminlte', 'AdminLTEController@index');
+
+
