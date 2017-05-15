@@ -14,3 +14,7 @@
 Broadcast::channel('testprivatechannel', function ($user) {
     return true;
 });
+
+Broadcast::channel('chat', function ($user) {
+    return true;
+});
