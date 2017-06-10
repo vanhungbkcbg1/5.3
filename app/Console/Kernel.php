@@ -2,8 +2,10 @@
 
 namespace App\Console;
 
+use App\Console\Commands\MySchedule;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Log;
 
 class Kernel extends ConsoleKernel
 {
@@ -15,7 +17,8 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         //
 	    Commands\SendChatMessage::class,
-	    Commands\TestPrivate::class
+	    Commands\MySchedule::class,
+	    Commands\Subcrible::class,
     ];
 
     /**
@@ -28,6 +31,14 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+
+
+        $schedule->call(function(){
+
+            Log::info("test".date('Y-m-d H:m:i'));
+        })->everyFiveMinutes();
+
+        $schedule->command(MySchedule::class)->everyMinute();
     }
 
     /**

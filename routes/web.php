@@ -40,4 +40,8 @@ Route::get('/adminlte', 'AdminLTEController@index');
 Route::get('/chat', 'ChatController@index');
 Route::post('/chat', 'ChatController@send');
 
+Route::get('/redis', 'RedisController@index');
+Route::get('/redis/publish', 'RedisController@publish');
+Route::get('/redis/register', 'RedisController@register');
+
 

@@ -8,6 +8,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class SendReminderEmail implements ShouldQueue
@@ -33,5 +34,9 @@ class SendReminderEmail implements ShouldQueue
     {
         //
         Mail::to('vanhungbkcbg1@gmail.com')->send(new OrderShipped());
+    }
+
+    public function failed(\Exception $exception){
+        Log::info($exception->getMessage());
     }
 }
