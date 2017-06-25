@@ -43,5 +43,6 @@ Route::post('/chat', 'ChatController@send');
 Route::get('/redis', 'RedisController@index');
 Route::get('/redis/publish', 'RedisController@publish');
 Route::get('/redis/register', 'RedisController@register');
+Route::get('/download', 'ExcelController@download');
 
 
