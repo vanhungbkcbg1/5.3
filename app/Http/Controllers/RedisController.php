@@ -13,6 +13,14 @@ class RedisController extends Controller
 
         Redis::set('name','vanhung');
         $name=Redis::get('name');
+
+	    Redis::command('hmset',array('myhash','name','vanhung',"age","27"));
+	    $name=Redis::command('hget',array('myhash','name'));
+	    $age=Redis::command('hget',array('myhash','age'));
+
+	    //redis hash scan
+
+	    $data=Redis::hscan("myhash",0,'match','age*');
         return $name;
     }
 
