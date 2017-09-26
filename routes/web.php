@@ -45,4 +45,7 @@ Route::get('/redis/publish', 'RedisController@publish');
 Route::get('/redis/register', 'RedisController@register');
 Route::get('/download', 'ExcelController@download');
 
+//admin lte
+Route::get('/adminlte/detail', 'AdminLTEController@detail');
+
 

@@ -293,6 +293,7 @@ desired effect
 		<section class="content">
 
 			<!-- Your Page Content Here -->
+			@yield('content')
 
 		</section>
 		<!-- /.content -->
