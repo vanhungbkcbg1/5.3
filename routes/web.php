@@ -49,3 +49,8 @@ Route::get('/download', 'ExcelController@download');
 Route::get('/adminlte/detail', 'AdminLTEController@detail');
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/home/test', 'HomeController@testCsfToken');

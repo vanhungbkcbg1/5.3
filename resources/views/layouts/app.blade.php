@@ -82,6 +82,11 @@
     </div>
 
     <!-- Scripts -->
+    <script src="{{ asset ("/bower_components/AdminLTE/plugins/jQuery/jQuery-2.2.3.min.js") }}"></script>
+    <script src="{{ asset ("/js/common.js") }}" type="text/javascript"></script>
     <script src="{{ asset('js/app.js') }}"></script>
+    @section('javascript')
+
+    @show
 </body>
 </html>

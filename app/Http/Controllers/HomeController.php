@@ -25,4 +25,8 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    public function testCsfToken(){
+        return response()->json(['name'=>"vanhung"]);
+    }
+
 }

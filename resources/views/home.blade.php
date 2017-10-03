@@ -8,10 +8,18 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in!
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-default" id="btn-search">Test</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+@endsection
+
+@section('javascript')
+    <script src="{{asset('/js/home/home.js')}}"></script>
 @endsection
