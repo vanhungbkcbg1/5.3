@@ -11,6 +11,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <button type="button" class="btn btn-default" id="btn-search">Test</button>
+                            <button type="button" class="btn btn-default" id="btn-error">Error</button>
                         </div>
                     </div>
                 </div>

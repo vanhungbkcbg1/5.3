@@ -29,4 +29,8 @@ class HomeController extends Controller
         return response()->json(['name'=>"vanhung"]);
     }
 
+    public function success(){
+        return response()->json(['name'=>'vanhung'],301);
+    }
+
 }
