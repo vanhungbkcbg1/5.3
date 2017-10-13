@@ -18,7 +18,19 @@ class RedisController extends Controller
 	    $name=Redis::command('hget',array('myhash','name'));
 	    $age=Redis::command('hget',array('myhash','age'));
 
+	    $object=new \stdClass();
+	    $object->name="vanhung";
+	    $object->age=27;
+
+	    $object1=new \stdClass();
+	    $object1->name="vanhungbk";
+	    $object1->age=27;
+
+	    Redis::command('zadd',array('myindex',0,json_encode($object)));
+	    Redis::command('zadd',array('myindex',0,json_encode($object1)));
+
 	    //redis hash scan
+	    $data=Redis::command('zrangebylex',array('myindex','[vanhung','+'));
 
 	    $data=Redis::hscan("myhash",0,'match','age*');
         return $name;
