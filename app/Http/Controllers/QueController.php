@@ -10,7 +10,7 @@ class QueController extends Controller
     //
 
     public function runQue(){
-        dispatch(new SendReminderEmail());
+        dispatch(new SendReminderEmail('test'));
 
         echo 'vanhung';
     }

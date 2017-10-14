@@ -15,14 +15,16 @@ class SendReminderEmail implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    public $item;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($item)
     {
         //
+        $this->item=$item;
     }
 
     /**
@@ -33,7 +35,7 @@ class SendReminderEmail implements ShouldQueue
     public function handle()
     {
         //
-        Mail::to('vanhungbkcbg1@gmail.com')->send(new OrderShipped());
+        Mail::to('vanhungbkcbg1@gmail.com')->send(new OrderShipped($this->item));
     }
 
     public function failed(\Exception $exception){
