@@ -32,6 +32,9 @@ class RedisController extends Controller
 	    ]);
 
 	    $result = $bookIndex->search("@price:[10.98,+inf]");
+	    foreach($result->getDocuments() as $doc){
+		    $bookIndex->delete($doc->id);
+	    }
 
 
         Redis::set('name','vanhung');
