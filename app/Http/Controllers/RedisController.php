@@ -2,14 +2,37 @@
 
 namespace App\Http\Controllers;
 
+use Ehann\RediSearch\Fields\NumericField;
+use Ehann\RediSearch\Fields\TextField;
+use Ehann\RediSearch\Redis\RedisClient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
-
+use Ehann\RediSearch\Index;
 class RedisController extends Controller
 {
     //
 
     public function index(){
+
+
+//	    $redis_client=new RedisClient($redis = 'Predis\Client', $hostname = '192.168.99.100', $port = 6379, $db = 0, $password = null);
+	    $bookIndex = app('bookClient');
+	    $bookIndex->add([
+		    new TextField('title', 'Tale of Two Cities'),
+		    new TextField('author', 'Charles Dickens'),
+		    new NumericField('price', 10.99),
+		    new NumericField('stock', 231),
+	    ]);
+
+	    $bookIndex->add([
+		    new TextField('title', 'Cities hello Two'),
+		    new TextField('author', 'dsdsds Dickens'),
+		    new NumericField('price', 1.99),
+		    new NumericField('stock', 231),
+	    ]);
+
+	    $result = $bookIndex->search("@price:[10.98,+inf]");
+
 
         Redis::set('name','vanhung');
         $name=Redis::get('name');

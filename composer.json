@@ -7,6 +7,7 @@
     "require": {
         "php": ">=5.6.4",
         "barryvdh/laravel-debugbar": "2.4.3",
+        "ethanhann/redisearch-php": "^0.8.0",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "maatwebsite/excel": "~2.1.0",
