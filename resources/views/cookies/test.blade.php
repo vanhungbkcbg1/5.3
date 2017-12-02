@@ -1,0 +1,1 @@
+<input type="text" value="<?php echo isset($_COOKIE['test'])?$_COOKIE['test']:'';?>">

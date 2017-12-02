@@ -55,3 +55,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/home/test', 'HomeController@testCsfToken');
 Route::post('/home/success', 'HomeController@success');
+
+//cookies
+Route::get('/cookies/save', 'CookiesController@save');
+Route::get('/cookies/get', 'CookiesController@read');
