@@ -47,4 +47,24 @@ function  initEvents(){
 
         });
     });
+
+    $(document).on('click','#btn-encode', function () {
+
+        $.ajax({
+            method:'get',
+            url:"/home/encode",
+            dataType:"json",
+            data:{},
+            success: function (res) {
+                alert(JSON.parse(res));
+            },
+            error: function (jqXHR) {
+                if(jqXHR.status==404){
+                    location.href="/login";
+                }
+                console.log(err);
+            }
+
+        });
+    });
 }

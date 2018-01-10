@@ -19,6 +19,11 @@ class CookiesController extends Controller
     }
 
 	public function read(){
+
+        $filehandel=fopen(storage_path('test.txt'),'w+');
+        fwrite($filehandel,'リクエストの取得');
+        fwrite($filehandel,'リクエストの取得');
+        fclose($filehandel);
 		return view("cookies.test");
 	}
 }

@@ -55,6 +55,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/home/test', 'HomeController@testCsfToken');
 Route::post('/home/success', 'HomeController@success');
+Route::get('/home/encode', 'HomeController@encode');
+
+Route::get('/home/ftp', 'HomeController@test_ftp');
 
 //cookies
 Route::get('/cookies/save', 'CookiesController@save');

@@ -12,6 +12,7 @@
                         <div class="col-md-6">
                             <button type="button" class="btn btn-default" id="btn-search">Test</button>
                             <button type="button" class="btn btn-default" id="btn-error">Error</button>
+                            <button type="button" class="btn btn-default" id="btn-encode">Encode</button>
                         </div>
                     </div>
                 </div>
