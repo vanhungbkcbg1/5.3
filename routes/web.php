@@ -62,3 +62,5 @@ Route::get('/home/ftp', 'HomeController@test_ftp');
 //cookies
 Route::get('/cookies/save', 'CookiesController@save');
 Route::get('/cookies/get', 'CookiesController@read');
+Route::post('/home/upload', 'HomeController@receive_file');
+Route::get('/home/testupload', 'HomeController@upload');
