@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class HomeController extends Controller
 {
@@ -90,20 +91,20 @@ class HomeController extends Controller
 
         try{
 
-            echo 'tee';
+//            echo 'tee';
 //            $letter='Z';
 //            $pass='hungnv';
 //            $user='hungnv';
 //            $dir="\\\\hungnv-pc\\test";
 //            system("net use ".$letter.": \"".$dir."\" ".$pass." /user:".$user." /persistent:no>nul 2>&1");
-////            system("net use z:\\\\hungnv-pc\\test //user:hungnv hungnv");
+//            system("net use z:\\\\hungnv-pc\\test //user:hungnv hungnv");
 //            $connection=ftp_connect('127.0.0.1');
 //            ftp_login($connection,'hungnv','hungnv');
 //            ftp_put($connection,'test.doc',public_path('laravel authentication.docx'),FTP_BINARY);
 //            ftp_get($connection,public_path('1.jpg'),"test.jpg",FTP_BINARY);
 //            ftp_close($connection);
 
-            echo is_file("\\\\HUNGNV-PC\\test\\tesst.txt")==true?"tontai":'khongtontai';
+            echo is_file("Z:\\test.txt")==true?"tontai":'khongtontai';
 //            copy(public_path('index.php'),"Z:\\test\\1.php");
 ////            unlink(public_path('info.php'));
 //
@@ -113,6 +114,20 @@ class HomeController extends Controller
         }catch(\Exception $e){
             echo $e->getMessage();
         }
+    }
+
+    public function setlocale(){
+
+
+        App::setLocale('hungnv');
+        return App::getLocale();
+    }
+
+    public function getlocale(){
+
+
+        echo env('DB_CONNECTION');
+        return App::getLocale();
     }
 
 }

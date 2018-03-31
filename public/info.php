@@ -1,8 +1,8 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: vanhu
- * Date: 9/9/2017
- * Time: 10:17 AM
+ * User: hungnv
+ * Date: 1/26/2018
+ * Time: 10:26 PM
  */
 phpinfo();

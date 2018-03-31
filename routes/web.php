@@ -58,9 +58,14 @@ Route::post('/home/success', 'HomeController@success');
 Route::get('/home/encode', 'HomeController@encode');
 
 Route::get('/home/ftp', 'HomeController@test_ftp');
+Route::get('/home/setlocale', 'HomeController@setlocale');
+Route::get('/home/getlocale', 'HomeController@getlocale');
 
 //cookies
 Route::get('/cookies/save', 'CookiesController@save');
 Route::get('/cookies/get', 'CookiesController@read');
 Route::post('/home/upload', 'HomeController@receive_file');
 Route::get('/home/testupload', 'HomeController@upload');
+
+Route::get('/redirect', 'SocialAuthController@redirect');
+Route::get('/callback', 'SocialAuthController@callback');
