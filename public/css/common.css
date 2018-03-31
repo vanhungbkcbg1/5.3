@@ -1,0 +1,6 @@
+.required{
+    border-color: #a94442;
+}
+.required:focus{
+    border-color: #a94442;
+}

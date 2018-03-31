@@ -46,8 +46,11 @@ Route::get('/redis/register', 'RedisController@register');
 Route::get('/download', 'ExcelController@download');
 
 //admin lte
-Route::get('/adminlte/detail', 'AdminLTEController@detail');
 
+Route::get('/adminlte/detail', 'AdminLTEController@detail');
+Route::prefix('adminlte')->group(function () {
+	Route::get('control','AdminLTEController@control');
+});
 
 
 Auth::routes();

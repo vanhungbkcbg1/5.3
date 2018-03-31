@@ -22,10 +22,10 @@ class AdminLTEController extends Controller
 
 	public function detail(){
 
-		$all=$this->post->getAll();
-		$data=$this->post->find(1);
-		Debugbar::info($data);
-		Debugbar::info($all);
-		return "vanun";
+		return view('lte.detail');
+	}
+
+	public function control(){
+		return view('lte.control');
 	}
 }
