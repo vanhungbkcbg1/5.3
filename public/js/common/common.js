@@ -22,6 +22,9 @@ function getData(_obj){
                     result[key]=0;
                 }
             }break;
+            case "radio":{
+                result[key]=$('input[name="'+key+'"]:checked').val();
+            }break;
         }
     }
 

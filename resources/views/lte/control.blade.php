@@ -56,8 +56,13 @@
 
                     <div class="form-group">
                         <label class="checkbox-inline">
-                            <input type="checkbox" name="gender" value="">Gender
+                            <input type="checkbox" name="gender" value="1">Choose
                         </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="radio-inline"><input type="radio" checked value="1" name="optradio">Option 1</label>
+                        <label class="radio-inline"><input type="radio" value="2" name="optradio">Option 2</label>
+                        <label class="radio-inline"><input type="radio" value="3" name="optradio">Option 3</label>
                     </div>
 
                     <div class="form-group">

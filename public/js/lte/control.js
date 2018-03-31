@@ -6,7 +6,8 @@ var _obj={
 
     exampleInputEmail1:{type:'text'},
     gender:{type:'checkbox'},
-    "my-select":{type:'select'}
+    "my-select":{type:'select'},
+    optradio:{type:'radio'}
 
 };
 $(document).ready(function () {
