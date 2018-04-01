@@ -10,22 +10,21 @@ use Debugbar;
 class AdminLTEController extends Controller
 {
     //
-	private $post;
-	public function __construct(PostRepository $post)
+	public function __construct()
 	{
-		$this->post=$post;
+		$this->middleware('auth');
 	}
 
-	public function index(){
-		return view('lte.index');
-	}
-
-	public function detail(){
-
-		return view('lte.detail');
-	}
-
-	public function control(){
-		return view('lte.control');
-	}
+//	public function index(){
+//		return view('lte.index');
+//	}
+//
+//	public function detail(){
+//
+//		return view('lte.detail');
+//	}
+//
+//	public function control(){
+//		return view('lte.control');
+//	}
 }

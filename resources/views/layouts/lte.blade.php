@@ -26,6 +26,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 		  apply the skin class to the body tag so the changes take effect.
 	-->
 	<link rel="stylesheet" href="{{asset("/bower_components/AdminLTE/dist/css/skins/skin-blue.min.css")}}">
+	<link rel="stylesheet" href="{{asset("/bower_components/jquery-toast-plugin/dist/jquery.toast.min.css")}}">
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -42,6 +43,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	<!-- AdminLTE App -->
 	<script src="{{asset("/bower_components/AdminLTE/dist/js/app.min.js")}}"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="{{asset("/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js")}}"></script>
 	<script src="{{asset("/js/common/common.js")}}"></script>
 	<script src="{{asset("/js/common/number.js")}}"></script>
 	<script src="{{asset("/js/common/datepicker.js")}}"></script>
@@ -277,7 +280,7 @@ desired effect
 			<ul class="sidebar-menu">
 				<li class="header">HEADER</li>
 				<!-- Optionally, you can add icons to the links -->
-				<li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
+				<li class="active"><a href="/adminlte/post"><i class="fa fa-link"></i> <span>Post Manager</span></a></li>
 				<li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
 				<li class="treeview">
 					<a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
@@ -302,12 +305,7 @@ desired effect
 		<section class="content-header">
 			<h1>
 				Page Header
-				<small>Optional description</small>
 			</h1>
-			<ol class="breadcrumb">
-				<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-				<li class="active">Here</li>
-			</ol>
 		</section>
 
 		<!-- Main content -->

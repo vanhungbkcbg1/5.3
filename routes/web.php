@@ -50,6 +50,10 @@ Route::get('/download', 'ExcelController@download');
 Route::get('/adminlte/detail', 'AdminLTEController@detail');
 Route::prefix('adminlte')->group(function () {
 	Route::get('control','AdminLTEController@control');
+	Route::get('post','PostManagerController@index');
+	Route::get('post/detail/{id?}','PostManagerController@geDetail');
+	Route::delete('post/detail/{id}','PostManagerController@delete');
+	Route::post('post/detail','PostManagerController@save');
 });
 
 
