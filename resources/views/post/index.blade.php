@@ -42,16 +42,16 @@
                         <tr>
                             <th>ID</th>
                             <th>User</th>
-                            <th>Date</th>
+                            <th class="text-center" style="min-width: 100px;max-width: 100px;">Created Date</th>
                             <th>Content</th>
-                            <th class="text-center">Action</th>
+                            <th class="text-center" style="min-width: 150px;max-width: 150px;width: 150px;">Action</th>
                         </tr>
                         @foreach($posts as $post)
 
                             <tr>
                                 <td>{{$post->id}}</td>
                                 <td>{{$post->user->name}}</td>
-                                <td>{{$post->created_at}}</td>
+                                <td class="text-center" style="min-width: 100px;max-width: 100px;width: 100px;">{{$post->created_at->format('Y/m/d')}}</td>
                                 <td>{{$post->content}}</td>
                                 <td class="text-center">
 

@@ -10,7 +10,6 @@
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form role="form">
                     <div class="box-body">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Content</label>
@@ -63,7 +62,6 @@
                         <button type="button" id="btn-save" class="btn btn-primary btn-sm"><span
                                     class="glyphicon glyphicon-floppy-disk"></span></button>
                     </div>
-                </form>
             </div>
 
 
