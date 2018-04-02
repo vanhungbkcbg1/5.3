@@ -66,21 +66,52 @@ function getData(_obj) {
 }
 
 function jSuccess(content) {
-    $.toast({
-        text: content,
-        showHideTransition: 'slide',
-        position: 'bottom-right',
-        icon: 'success'
-    })
+    $.alert({
+        title: 'Congratulations!',
+        content: content,
+        type:'green',
+        draggable:false,
+        animation: 'scale',
+        closeAnimation: 'scale',
+        animateFromElement: false,
+        icon:'fa fa-info-circle'
+    });
+}
+
+function jConfirm(callback) {
+    $.confirm({
+        animation: 'scale',
+        closeAnimation: 'scale',
+        animateFromElement: false,
+        title:'Confirm',
+        draggable: false,
+        type:'orange',
+        icon:'fa fa-question',
+        buttons:{
+
+            OK: function () {
+               if(typeof callback=='function'){
+                   callback();
+               }
+            },
+            Cancel: function () {
+                //alert('cancel');
+            }
+        }
+    });
 }
 
 function jError(content) {
-    $.toast({
-        text: content,
-        showHideTransition: 'slide',
-        position: 'bottom-right',
-        icon: 'error'
-    })
+    $.alert({
+        title: 'Error',
+        content: content,
+        type:'red',
+        draggable:false,
+        animation: 'scale',
+        closeAnimation: 'scale',
+        animateFromElement: false,
+        icon: 'fa fa-warning'
+    });
 }
 
 function jInfo(content) {
