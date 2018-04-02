@@ -283,7 +283,7 @@ desired effect
 				<li class="header">HEADER</li>
 				<!-- Optionally, you can add icons to the links -->
 				<li class="active"><a href="/adminlte/post"><i class="fa fa-link"></i> <span>Post Manager</span></a></li>
-				<li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+				<li><a href="/student"><i class="fa fa-link"></i> <span>Student Manager</span></a></li>
 				<li class="treeview">
 					<a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
             <span class="pull-right-container">

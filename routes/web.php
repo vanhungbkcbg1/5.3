@@ -56,6 +56,10 @@ Route::prefix('adminlte')->group(function () {
 	Route::post('post/detail','PostManagerController@save');
 });
 
+Route::prefix('/student')->group(function () {
+	Route::get('/','StudentController@index');
+});
+
 
 Auth::routes();
 
