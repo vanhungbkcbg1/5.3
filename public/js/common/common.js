@@ -1,23 +1,21 @@
 $(document).ready(function () {
 
     $(document).on('click', '.btn-delete', function (e) {
-        var parent = $(this).closest('tr');
-        var result = confirm('Are you want to delete this item');
-        if (result == true) {
-            var url = $(this).attr('href');
+        var $this = $(this);
+        jConfirm(function () {
+            var url = $this.attr('href');
             axios.delete(url).then(function (res) {
 
-                parent.remove();
-                jSuccess('Delete Success');
-                location.reload(true);
+                jSuccess('Delete Success', function () {
+                    location.reload(true);
+                });
+
             }).catch(function (err) {
                 jError(err);
             });
+        });
 
-            return false;
-        } else {
-            return false;
-        }
+        return false;
 
     });
 
@@ -65,16 +63,23 @@ function getData(_obj) {
 
 }
 
-function jSuccess(content) {
+function jSuccess(content, callback) {
     $.alert({
         title: 'Congratulations!',
         content: content,
-        type:'green',
-        draggable:false,
+        type: 'green',
+        draggable: false,
         animation: 'scale',
         closeAnimation: 'scale',
         animateFromElement: false,
-        icon:'fa fa-info-circle'
+        icon: 'fa fa-info-circle',
+        buttons: {
+            OK: function () {
+                if (typeof callback == 'function') {
+                    callback();
+                }
+            }
+        }
     });
 }
 
@@ -83,16 +88,16 @@ function jConfirm(callback) {
         animation: 'scale',
         closeAnimation: 'scale',
         animateFromElement: false,
-        title:'Confirm',
+        title: 'Confirm',
         draggable: false,
-        type:'orange',
-        icon:'fa fa-question',
-        buttons:{
+        type: 'orange',
+        icon: 'fa fa-question',
+        buttons: {
 
             OK: function () {
-               if(typeof callback=='function'){
-                   callback();
-               }
+                if (typeof callback == 'function') {
+                    callback();
+                }
             },
             Cancel: function () {
                 //alert('cancel');
@@ -105,8 +110,8 @@ function jError(content) {
     $.alert({
         title: 'Error',
         content: content,
-        type:'red',
-        draggable:false,
+        type: 'red',
+        draggable: false,
         animation: 'scale',
         closeAnimation: 'scale',
         animateFromElement: false,

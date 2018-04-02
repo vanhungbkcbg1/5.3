@@ -33,7 +33,9 @@ function initEvents() {
             data.mode=$("#mode").val();
 
             axios.post('/adminlte/post/detail', data).then(function () {
-                    jSuccess('Save success');
+                    jSuccess('Save success', function () {
+                        location.reload(true);
+                    });
                 }
             ).catch(function (e) {
                     jError(e);

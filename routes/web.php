@@ -58,6 +58,9 @@ Route::prefix('adminlte')->group(function () {
 
 Route::prefix('/student')->group(function () {
 	Route::get('/','StudentController@index');
+	Route::get('/detail/{id?}','StudentController@getDetail');
+	Route::post('/detail','StudentController@save');
+	Route::delete('/detail/{id}','StudentController@delete');
 });
 
 

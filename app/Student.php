@@ -7,5 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     //
-    protected $table='grade';
+    protected $table='student';
+    protected $fillable=['name','date_of_birth','address','grade_id'];
+    protected $casts=[
+
+        'date_of_birth'=>'date'
+    ];
+
+    public function grade(){
+        return $this->belongsTo('App\Grade');
+    }
+
+    public function setDateOfBirthAttribute($value)
+    {
+        $this->attributes['date_of_birth'] = \Carbon\Carbon::createFromFormat('Y/m/d', $value);
+    }
 }
