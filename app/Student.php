@@ -20,6 +20,11 @@ class Student extends Model
 
     public function setDateOfBirthAttribute($value)
     {
-        $this->attributes['date_of_birth'] = \Carbon\Carbon::createFromFormat('Y/m/d', $value);
+        if(is_null($value)){
+            $this->attributes['date_of_birth'] =null;
+        }else{
+
+            $this->attributes['date_of_birth'] = \Carbon\Carbon::createFromFormat('Y/m/d', $value);
+        }
     }
 }
