@@ -40,11 +40,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 	<script src="{{asset("/bower_components/AdminLTE/plugins/jQuery/jquery-2.2.3.min.js")}}"></script>
 	<!-- Bootstrap 3.3.6 -->
-	<script src="{{asset("/bower_components/AdminLTE/bootstrap/js/bootstrap.min.js")}}"></script>
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
 	<!-- AdminLTE App -->
 	<script src="{{asset("/bower_components/AdminLTE/dist/js/app.min.js")}}"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="{{asset("/bower_components/AdminLTE/bootstrap/js/bootstrap.min.js")}}"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="{{asset("/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js")}}"></script>
 	<script src="{{asset("/js/common/common.js")}}"></script>

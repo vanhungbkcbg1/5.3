@@ -27,20 +27,30 @@ function initEvents() {
 
         jConfirm(function () {
 
-            var data = {};
-            data.post = getData(_obj);
-            data.comments = getDataInsert();
-            data.mode=$("#mode").val();
+            if(_validate()){
+                var data = {};
+                data.post = getData(_obj);
+                data.comments = getDataInsert();
+                data.mode=$("#mode").val();
 
-            axios.post('/adminlte/post/detail', data).then(function () {
-                    jSuccess('Save success', function () {
-                        location.reload(true);
-                    });
-                }
-            ).catch(function (e) {
-                    jError(e);
-                }
-            );
+                axios.post('/adminlte/post/detail', data).then(function (res) {
+
+                    if(res.data.status==201){
+                        _showError(res);
+                    }else{
+                        jSuccess('Save success', function () {
+                            location.reload(true);
+                        });
+                    }
+
+
+                    }
+                ).catch(function (e) {
+                        jError(e);
+                    }
+                );
+            }
+
         });
 
     });
@@ -48,6 +58,7 @@ function initEvents() {
 }
 function initTrigger() {
 
+    $("#content").tooltip({title:'required'});
 }
 
 function getDataInsert() {
@@ -57,7 +68,8 @@ function getDataInsert() {
 
         var tr = $(this);
         var detail = {};
-        detail['content'] = tr.find('.comment_content').val();
+        detail['comment_content'] = tr.find('.comment_content').val();
+        detail['my_email'] = tr.find('.my_email').val();
         detail['id'] = tr.find('.comment_id').val();
 
         result[i] = detail;

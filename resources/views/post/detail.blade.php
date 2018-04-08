@@ -15,7 +15,7 @@
                             <label for="exampleInputEmail1">Content</label>
                             <input type="hidden" value="{{$post->id or ''}}" id="id">
                             <input type="hidden" value="{{isset($post->id)?'U':'A'}}" id="mode">
-                            <input type="text" class="form-control" value="{{$post->content or ''}}" id="content">
+                            <input type="text" class="form-control required" value="{{$post->content or ''}}" id="content">
                         </div>
                     </div>
 
@@ -40,7 +40,8 @@
                                             <tr>
                                                 <td>
                                                     <input type="hidden" class="comment_id" value="{{$comment->id}}">
-                                                    <input type="text" value="{{$comment->content or ''}}" class="form-control comment_content">
+                                                    <input type="text" value="{{$comment->content or ''}}" class="form-control comment_content required">
+                                                    <input type="text" value="{{$comment->content or ''}}" class="form-control my_email required">
                                                 </td>
                                                 <td class="text-center">
                                                     @include('controls.btn-remove')
@@ -78,6 +79,7 @@
             <tr>
                 <td>
                     <input type="text" class="form-control comment_content">
+                    <input type="text" class="form-control my_email">
                     <input type="hidden" class="form-control comment_id">
                 </td>
                 <td class="text-center">

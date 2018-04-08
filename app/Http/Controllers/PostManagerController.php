@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Debugbar;
 use Illuminate\Support\Facades\Auth;
 use DB;
+use Validator;
 
 class PostManagerController extends AdminLTEController
 {
@@ -40,6 +41,45 @@ class PostManagerController extends AdminLTEController
 	public function save(Request $request){
 
 		try{
+			$error_response=array();
+
+			$validator = Validator::make($request->post, [
+				'content' => 'required|min:10',
+			]);
+
+			$validator_comment=Validator::make($request->comments, [
+				'*.comment_content' => 'min:10',
+				'*.my_email' => 'min:10',
+			],[
+
+				'*.comment_content.min'=>'content must be at least 10 character',
+				'*.my_email.min'=>'Email must be at least 10 character'
+			]);
+			if($validator_comment->fails()){
+				$error=$validator_comment->errors();
+
+				foreach($request->comments as $key=>$value){
+					foreach($value as $key1=>$value1){
+						if($error->has("$key.{$key1}")){
+							$error_response[".$key1"][]=['error'=>$error->get("$key.$key1"),"id"=>$key];
+						}
+					}
+				}
+			}
+			if($validator->fails()){
+
+
+				$error=$validator->errors();
+				foreach($error->messages() as $key=>$value){
+					$error_response["#{$key}"]=$value;
+				}
+
+			}
+
+			if($error_response){
+				return response()->json(['status'=>201,'errors'=>$error_response]);
+			}
+
 			$mode=$request->mode;
 			if($mode=='U'){
 				//update

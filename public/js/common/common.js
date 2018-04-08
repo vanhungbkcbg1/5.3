@@ -26,6 +26,9 @@ $(document).ready(function () {
 
     });
 
+    var bootstrapTooltip = $.fn.tooltip.noConflict();
+    $.fn.bstooltip = bootstrapTooltip;
+
 });
 function getData(_obj) {
     var result = {};
@@ -86,7 +89,8 @@ function jSuccess(content, callback) {
 function jConfirm(callback) {
     $.confirm({
         animation: 'scale',
-        closeAnimation: 'scale',
+        closeAnimation: 'none',
+        //animationSpeed:50,
         animateFromElement: false,
         title: 'Confirm',
         draggable: false,
@@ -96,13 +100,18 @@ function jConfirm(callback) {
 
             OK: function () {
                 if (typeof callback == 'function') {
-                    callback();
+                   setTimeout(function () {
+                       callback();
+                   },55);
                 }
             },
             Cancel: function () {
                 //alert('cancel');
             }
-        }
+        },onClose: function () {
+            // before the modal is hidden.
+            console.log(1);
+        },
     });
 }
 
@@ -126,4 +135,53 @@ function jInfo(content) {
         position: 'bottom-right',
         icon: 'info'
     })
+}
+
+function _validate(){
+
+    _clearError();
+    var _error=0;
+    $("input.required:enabled:not(:read-only)").each(function () {
+
+
+        var value=$(this).val();
+        if(value==''){
+            _error++;
+            //$(this).bstooltip({title:'Required',trigger:'click'});
+            $(this).after("<span class='has-error'>Required!</span>");
+            $(this).addClass('has-error');
+        }
+    });
+    if(_error>0){
+        $("input.has-error:first").focus();
+    }
+
+    if(_error>0){
+        return false;
+    }
+    return true;
+}
+function _clearError(){
+    $("input").removeClass('has-error');
+    $("span.has-error").remove();
+}
+
+function _showError(res){
+    for(var key in res.data['errors']){
+        for(var i=0;i<res.data['errors'][key].length;i++){
+            if(key.indexOf('#')>-1){
+                $(key).addClass('has-error');
+                $(key).after("<span class='has-error'>"+res.data['errors'][key][i]+"</span>");
+            }else if(key.indexOf('.')>-1) {
+                //class
+
+                var index=res.data['errors'][key][i]['id'];
+                for(var j=0;j<res.data['errors'][key][i]['error'].length;j++){
+                    $(key).eq(index).addClass('has-error');
+                    $(key).eq(index).after("<span class='has-error'>"+res.data['errors'][key][i]['error'][j]+"</span>")
+                }
+            }
+        }
+    }
+    $("input.has-error:first").focus();
 }

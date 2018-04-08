@@ -4,3 +4,7 @@
 .required:focus{
     border-color: #a94442;
 }
+
+span.has-error{
+    color: #a94442 !important;
+}
