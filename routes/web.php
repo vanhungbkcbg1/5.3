@@ -54,6 +54,7 @@ Route::prefix('adminlte')->group(function () {
 	Route::get('post/detail/{id?}','PostManagerController@geDetail');
 	Route::delete('post/detail/{id}','PostManagerController@delete');
 	Route::post('post/detail','PostManagerController@save');
+	Route::get('auto','PostManagerController@auto');
 });
 
 Route::prefix('/student')->group(function () {

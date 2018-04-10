@@ -10,7 +10,7 @@ $(document).ready(function () {
 
 function  initEvents(){
 
-
+        //$("#auto-completed").focus();
 }
 function  initTrigger(){
     var availableTags = [
@@ -37,9 +37,30 @@ function  initTrigger(){
         "Scala",
         "Scheme"
     ];
-    $("#auto-completed" ).autocomplete({
-        source: availableTags
+
+    $("#auto-completed").blur(function (event) {
+       return event.preventDefault();
     });
+    //$("#auto-completed").blur();
+    $("#auto-completed").focus();
+   $("#auto-completed" ).autocomplete({
+        source: availableTags,
+        change: function (event,ui) {
+            if(ui.item==null){
+                $("#auto-completed").val('');
+            }
+        }
+    });
+
+    //$( "#auto-completed" ).autocomplete( "option", { cancelBlur: true } );
+    //item.cancelBlur=true;
+    //console.log(item.);
+
+    //$("#auto-completed").blur();
+    //$("#auto-completed").focus();
+
+
+
 
     //$("#auto-completed" ).autocomplete({
     //    source: function( request, response ) {

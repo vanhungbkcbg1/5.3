@@ -27,4 +27,8 @@ class AdminLTEController extends Controller
 	public function control(){
 		return view('lte.control');
 	}
+
+	public function auto(){
+		return view('lte.auto');
+	}
 }

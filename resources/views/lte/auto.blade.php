@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-6">
-            <input type="text" placeholder="type to search" class="form-control" id="auto-completed">
+            <input type="text" value="hungnv" placeholder="type to search" class="form-control" id="auto-completed">
         </div>
     </div>
 @endsection
