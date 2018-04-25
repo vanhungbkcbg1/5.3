@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Excel;
 use Config;
 use DB;
+use PHPExcel_Shared_Date;
+use PHPExcel_Style_NumberFormat;
+
 class ExcelController extends Controller
 {
     //
@@ -22,35 +25,35 @@ class ExcelController extends Controller
 //
 //        });
 //        $data->store('csv');
-//        $data=array();
-//        for($i=0;$i<1000;$i++){
-//            $data[] = array(
-//                            'data1',
-//                            'data2',
-//                            'data2',
-//                            'data2',
-//                            'data2',
-//                            'data2',
-//                            'data2',
-//                            'data2',
-//                            'data2',
-//                            'data2',
-//                            'data2',
-//
-//                            );
-//        }
-//
-//
-//        Excel::create('Filename', function($excel) use($data) {
-//
-//            $excel->sheet('Sheetname', function($sheet) use($data) {
-//
-////                $sheet->setWidth('A', 5);
-//                $sheet->fromArray($data, null, 'A1', false, false);
-//
-//            });
-//
-//        })->export('xls');
+        $data=array();
+        for($i=0;$i<10;$i++){
+            $data[] = array(
+                            'data1',
+                            'data2',
+                            'data2',
+                            'data2',
+                            'data2',
+                            'data2',
+                            'data2',
+                            'data2',
+                            'data2',
+                            'data2',
+                            'data2',
+
+                            );
+        }
+
+
+        Excel::create('Filename', function($excel) use($data) {
+
+            $excel->sheet('Sheetname', function($sheet) use($data) {
+
+//                $sheet->setWidth('A', 5);
+                $sheet->fromArray($data, null, 'A1', false, false);
+
+            });
+
+        })->export('xls');
 
 //       $data= Excel::load(storage_path('/exports/empty.xlsx'), function($file)use($data) {
 //
@@ -90,18 +93,42 @@ class ExcelController extends Controller
 //        // Add line ending
 //        $line .= '\r\n';
 //
-//        // Write to file
+//        // Write to fileN
 //        fwrite($file, $line);
 //
 //
 //
 //        fclose($file);
 
-        $users = DB::select('SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE=?', ['BASE TABLE']);
+//        $users = DB::select('SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE=?', ['BASE TABLE']);
+//
+//        dd($users);
+//        config(['database.connections.mysql.host'=> 'America/Chicago']);
+//        config(['test.name'=>'vanhu']);
+//        return config('database.connections.mysql.host');
+    }
 
-        dd($users);
-        config(['database.connections.mysql.host'=> 'America/Chicago']);
-        config(['test.name'=>'vanhu']);
-        return config('database.connections.mysql.host');
+    public function readFile(Request $request){
+        Excel::load(storage_path('/exports/empty.xlsx'), function($file) {
+//
+            // modify stuff
+            $file->sheet('Sheet1', function($sheet) {
+                $cell=$sheet->getCell('A1');
+                $name=$sheet->getCell('A1')->getValue();
+
+                $name=$sheet->getCell('A1')->getFormattedValue();
+
+                //always uses this code for date and time value
+                if(PHPExcel_Shared_Date::isDateTime($sheet->getCell('B1'))){
+                    $name=PHPExcel_Style_NumberFormat::toFormattedString($sheet->getCell('B1')->getValue(),PHPExcel_Style_NumberFormat::FORMAT_DATE_YYYYMMDD2);
+                }else{
+                    $name=$sheet->getCell('B1')->getValue();
+                }
+                $name=PHPExcel_Style_NumberFormat::toFormattedString($sheet->getCell('B1')->getValue(),PHPExcel_Style_NumberFormat::FORMAT_DATE_YYYYMMDD2);
+                $name=PHPExcel_Style_NumberFormat::toFormattedString($sheet->getCell('A1')->getValue(),PHPExcel_Style_NumberFormat::FORMAT_DATE_YYYYMMDD2);
+                $name=PHPExcel_Style_NumberFormat::toFormattedString($sheet->getCell('C1')->getValue(),PHPExcel_Style_NumberFormat::FORMAT_DATE_YYYYMMDD2);
+                $name=$sheet->getCell('C1')->getValue();
+            });
+        });
     }
 }
