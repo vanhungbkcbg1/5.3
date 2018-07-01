@@ -39,5 +39,10 @@ return [
         'client_secret' => '537718a756b4a92480d444de343bd627',
         'redirect' => 'https://localhost:81/callback',
     ],
+    'google' => [
+        'client_id' => '84407119067-7bfk1b9m7614do6rf9aei3ushp8oaer3.apps.googleusercontent.com',
+        'client_secret' => '4Zbm_eyzSCZh108GdInZmERi',
+        'redirect' => 'http://localhost:81/oauth/callback',
+    ],
 
 ];

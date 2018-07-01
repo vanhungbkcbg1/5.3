@@ -38,9 +38,6 @@ function  initTrigger(){
         "Scheme"
     ];
 
-    $("#auto-completed").blur(function (event) {
-       return event.preventDefault();
-    });
     //$("#auto-completed").blur();
     $("#auto-completed").focus();
    $("#auto-completed" ).autocomplete({
@@ -49,7 +46,10 @@ function  initTrigger(){
             if(ui.item==null){
                 $("#auto-completed").val('');
             }
-        }
+        },
+       create: function (evt,ui) {
+           this.cancelBlur=true;
+       }
     });
 
     //$( "#auto-completed" ).autocomplete( "option", { cancelBlur: true } );

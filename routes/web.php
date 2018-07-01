@@ -43,7 +43,8 @@ Route::post('/chat', 'ChatController@send');
 Route::get('/redis', 'RedisController@index');
 Route::get('/redis/publish', 'RedisController@publish');
 Route::get('/redis/register', 'RedisController@register');
-Route::get('/download', 'ExcelController@download');
+Route::get('/excel/download', 'ExcelController@download');
+Route::get('/excel/read', 'ExcelController@readFile');
 
 //admin lte
 
@@ -83,4 +84,8 @@ Route::post('/home/upload', 'HomeController@receive_file');
 Route::get('/home/testupload', 'HomeController@upload');
 
 Route::get('/redirect', 'SocialAuthController@redirect');
-Route::get('/callback', 'SocialAuthController@callback');
+Route::get('/oauth/callback', 'SocialAuthController@callback');
+Route::get('/log', 'LogController@log');
+Route::get('/csv', 'HomeController@csv');
+Route::get('/upload', 'UploadController@index');
+Route::post('/upload', 'UploadController@upload');
