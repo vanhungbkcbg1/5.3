@@ -21,7 +21,7 @@ class SocialAuthController extends Controller
     public function callback()
     {
         // when facebook call us a with token
-        $user = Socialite::driver('google')->user();
+        $user = Socialite::driver('google')->stateless()->user();
 
         $authUser = $this->findOrCreateUser($user);
         Auth::login($authUser, true);
