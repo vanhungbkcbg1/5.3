@@ -28,7 +28,7 @@ class SocialAuthController extends Controller
         return Redirect::to('/home');
     }
 
-    /**
+    /**N
      * @param  $user Socialite user object
      * @param $provider Social auth provider
      * @return  User

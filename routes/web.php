@@ -88,4 +88,5 @@ Route::get('/oauth/callback', 'SocialAuthController@callback');
 Route::get('/log', 'LogController@log');
 Route::get('/csv', 'HomeController@csv');
 Route::get('/upload', 'UploadController@index');
+Route::get('/upload/image', 'UploadController@test');
 Route::post('/upload', 'UploadController@upload');
