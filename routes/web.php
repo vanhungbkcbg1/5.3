@@ -90,3 +90,5 @@ Route::get('/csv', 'HomeController@csv');
 Route::get('/upload', 'UploadController@index');
 Route::get('/upload/image', 'UploadController@test');
 Route::post('/upload', 'UploadController@upload');
+Route::get('/ajax', 'AjaxUploadController@getDetail');
+Route::post('/ajax/upload', 'AjaxUploadController@postDetail');
