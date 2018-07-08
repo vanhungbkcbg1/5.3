@@ -57,8 +57,8 @@
 
                 if(this.files && this.files[0].type.indexOf('image')!=-1){
 
-                    filePreview(this);
-                    uploadFile(this);
+                    UploadCore.filePreview(this);
+                    UploadCore.uploadFile(this);
                 }else{
                     alert('invalid');
                 }
@@ -76,33 +76,33 @@
             });
         });
 
-
-        function filePreview(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $(input).closest('.upload-group').find('.preview_image').attr('src', e.target.result).fadeIn(400);
-                };
-                reader.readAsDataURL(input.files[0]);
+        var UploadCore={
+            filePreview: function (input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $(input).closest('.upload-group').find('.preview_image').attr('src', e.target.result).fadeIn(400);
+                    };
+                    reader.readAsDataURL(input.files[0]);
+                }
+            },
+            uploadFile: function (input) {
+                if (input.files && input.files[0]) {
+                    var formData = new FormData();
+                    formData.append('file', input.files[0]);
+                    $.ajax({
+                        url : '/ajax/upload',
+                        type : 'POST',
+                        data : formData,
+                        processData: false,  // tell jQuery not to process the data
+                        contentType: false,  // tell jQuery not to set contentType
+                        success : function(data) {
+                            $(input).closest('.upload-group').find('.choose_file').val(data);
+                        }
+                    });
+                }
             }
-        }
-
-        function uploadFile(input){
-            if (input.files && input.files[0]) {
-                var formData = new FormData();
-                formData.append('file', input.files[0]);
-                $.ajax({
-                    url : '/ajax/upload',
-                    type : 'POST',
-                    data : formData,
-                    processData: false,  // tell jQuery not to process the data
-                    contentType: false,  // tell jQuery not to set contentType
-                    success : function(data) {
-                        $(input).closest('.upload-group').find('.choose_file').val(data);
-                    }
-                });
-            }
-        }
+        };
 
 
     </script>
