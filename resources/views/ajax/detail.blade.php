@@ -73,6 +73,7 @@
             $(document).on('click','.upload-group .btn-delete', function () {
 
                 $(this).closest('.upload-group').find('.choose_file').val('');
+                $(this).closest('.upload-group').find('.input-file').val('');
             });
         });
 
