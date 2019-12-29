@@ -6,7 +6,7 @@ class DemoController extends Controller
         return "helloword";
     }
 
-    public function test(){
+    public function testerror(){
         if(1)
         return 1;
         else return 3;
