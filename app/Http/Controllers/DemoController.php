@@ -1,6 +1,6 @@
 <?php
 namespace App\Http\Controllers;
-class TestController extends Controller
+class DemoController extends Controller
 {
     public function test(){
         return "helloword";
