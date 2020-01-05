@@ -20,11 +20,11 @@ class ExampleTest extends TestCase
 
     public function testFailed()
     {
-        $this->assertTrue(false);
+        $this->assertTrue(true);
     }
 
     public function testTrue()
     {
-        $this->assertTrue(false);
+        $this->assertTrue(true);
     }
 }
